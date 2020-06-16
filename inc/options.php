@@ -159,6 +159,7 @@ if ( ! function_exists( 'architectonic_sortable_sections' ) ) :
     function architectonic_sections() {
         $sections = array(
             'slider'    => esc_html__( 'Main Slider', 'architectonic' ),
+            'activity'  => esc_html__( 'Activity', 'architectonic' ),
             'about'     => esc_html__( 'About Us', 'architectonic' ),
             'latest'    => esc_html__( 'Latest', 'architectonic' ),
             'service'   => esc_html__( 'Services', 'architectonic' ),

@@ -49,7 +49,7 @@ if ( ! function_exists( 'architectonic_get_blog_section_details' ) ) :
         $cat_id = ! empty( $options['blog_content_category'] ) ? $options['blog_content_category'] : '';
         $args = array(
             'post_type'         => 'post',
-            'posts_per_page'    => 4,
+            'posts_per_page'    => 3,
             'cat'               => absint( $cat_id ),
             'ignore_sticky_posts'   => true,
             );                    
@@ -63,7 +63,7 @@ if ( ! function_exists( 'architectonic_get_blog_section_details' ) ) :
                 $page_post['title']     = get_the_title();
                 $page_post['url']       = get_the_permalink();
                 $page_post['excerpt']   = architectonic_trim_content( 25 );
-                $page_post['image']  	= has_post_thumbnail() ? get_the_post_thumbnail_url( get_the_id(), 'post-thumbnail' ) : '';
+                $page_post['image']  	= has_post_thumbnail() ? get_the_post_thumbnail_url( get_the_id(), 'full' ) : '';
 
                 // Push to the main array.
                 array_push( $content, $page_post );
@@ -99,52 +99,34 @@ if ( ! function_exists( 'architectonic_render_blog_section' ) ) :
         } 
         $col_count = count( $content_details );
         ?>
-
-        <div id="latest-posts" class="relative">
+        <div id="latest-posts" class="relative page-section">
+            <div class="impact-logo"></div>
             <div class="wrapper">
-                <?php if ( ! empty( $options['blog_title'] ) ) : ?>
-                    <div class="section-header">
-                        <div class="wrapper">
-                            <h2 class="section-title"><?php echo esc_html( $options['blog_title'] ); ?></h2>
-                        </div>
-                    </div><!-- .section-header -->
-                <?php endif; ?>
-
-                <!-- supports col-2,col-3,col-4 -->
-                <div class="section-content">
-                    <div class="wrapper">
-                        <div class="posts-wrapper col-<?php echo absint( $col_count ); ?>">
+                <div class="entry-content">
+                    <div class="box-left">
+                    <?php if ( ! empty( $options['blog_title'] ) ) : ?>
+                        <h3 class="section-title"><?php echo esc_html( $options['blog_title'] ); ?></h3>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting. Lorem Ipsum</p>
+                        <a href="" class="see-all">LIHAT SEMUA INFOGRAFIK</a>
+                    <?php endif; ?>
+                    </div>
+                    <div class="box-right">
+                        <div class="owl-carousel">
                             <?php foreach ( $content_details as $content ) : ?>
-                                <article class="hentry">
-                                    <div class="entry-meta">
-                                        <?php architectonic_posted_on( $content['id'] ); ?>   
-                                    </div><!-- .entry-meta -->
-
-                                    <?php if ( ! empty( $content['image'] ) ) : ?>
-                                        <div class="featured-image">
-                                            <a href="<?php echo esc_url( $content['url'] ); ?>"><img src="<?php echo esc_url( $content['image'] ); ?>" alt="<?php echo esc_attr( $content['title'] ); ?>"></a>
-                                        </div><!-- .featured-image -->
-                                    <?php endif; ?>
-
-                                    <div class="entry-container">
-                                        <header class="entry-header">
-                                            <h2 class="entry-title"><a href="<?php echo esc_url( $content['url'] ); ?>"><?php echo esc_html( $content['title'] ); ?></a></h2>
-                                        </header>
-
-                                        <div class="entry-content">
-                                            <?php echo esc_html( $content['excerpt'] ); ?>
-                                        </div><!-- .entry-content -->
-
-                                        <div class="read-more">
-                                            <a href="<?php echo esc_url( $content['url'] ); ?>" class="more-link"><?php echo esc_html( $readmore ); ?></a>
-                                        </div><!-- .read-more -->
-                                    </div><!-- .entry-container -->
-                                </article>
+                                <div class="slide-item-box">
+                                    <a href="<?php echo esc_url( $content['url'] ); ?>" class="slide-item-box">
+                                        <div class="image-box" style="background-image: url('<?php echo esc_url( $content['image'] ); ?>');"></div>
+                                        <div class="text-box">
+                                            <label><?php echo esc_html( $content['title'] ); ?></label>
+                                            <span>By <?php the_author() ?></span>
+                                        </div>
+                                    </a>
+                                </div>
                             <?php endforeach; ?>
-                        </div><!-- .posts-wrapper -->
-
-                    </div><!-- .wrapper -->
-                </div><!-- .section-content -->
+                        </div>
+                        
+                    </div>
+                </div>
             </div><!-- .wrapper -->
         </div><!-- #latest-posts -->
 

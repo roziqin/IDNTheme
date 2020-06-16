@@ -26,12 +26,12 @@ get_header();
 					*  
 					* @hooked architectonic_post_pagination 
 					*/
-					do_action( 'architectonic_action_post_pagination' );
+					//do_action( 'architectonic_action_post_pagination' );
 
 					// If comments are open or we have at least one comment, load up the comment template.
-					if ( comments_open() || get_comments_number() ) :
+					/*if ( comments_open() || get_comments_number() ) :
 						comments_template();
-					endif;
+					endif;*/
 
 				endwhile; // End of the loop.
 				?>

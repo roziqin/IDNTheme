@@ -56,6 +56,23 @@ jQuery(document).ready(function() {
 
 			}
 		});
+		jQuery('.owl-carousel').owlCarousel({
+		    loop:false,
+		    nav:true,
+		    responsiveClass:true,
+		    responsive:{
+		        0:{
+		            items:1
+		        },
+		        768:{
+		            items:2
+		        }
+		    }
+		})
+	} else if (jQuery("#inner-content-wrapper").hasClass("form-pendaftaran")) {
+		jQuery( "<span class='icon-input'></span>" ).insertBefore( ".everest-forms .evf-field-container .evf-frontend-row .evf-frontend-grid .evf-field.twitter input" );
+		jQuery( "<span class='icon-input'></span>" ).insertBefore( ".everest-forms .evf-field-container .evf-frontend-row .evf-frontend-grid .evf-field.instagram input" );
+		jQuery( "<span class='icon-input'></span>" ).insertBefore( ".everest-forms .evf-field-container .evf-frontend-row .evf-frontend-grid .evf-field.facebook input" );
 	} else {
 		var a = window.location.origin;	
 
@@ -66,6 +83,8 @@ jQuery(document).ready(function() {
 	}
 
 	jQuery(window).load(function() {
+
+		formfunc(res[5]);
 		 if (jQuery(window).width() < 767) {
 		 	
 			var screen = jQuery(window).width() - 30;
@@ -100,6 +119,11 @@ jQuery(document).ready(function() {
 				jQuery("#box-translate").addClass("Indonesian");
 				jQuery("#box-translate span.text").text("Bahasa");		
 			}
+		});
+
+		jQuery(".everest-forms .evf-field-container .evf-frontend-row .evf-frontend-grid .evf-field.kategori ul li label").click(function(e){
+			jQuery(".everest-forms .evf-field-container .evf-frontend-row .evf-frontend-grid .evf-field.kategori ul li label").removeClass("active");
+			jQuery(this).addClass("active");
 		});
 
 		jQuery(".box-loader").css("display", "none");
@@ -192,4 +216,36 @@ function tabsfunc(hrefmenu){
 	} else {
 		
 	}
+}
+
+function formfunc(hrefmenu){
+	console.log(hrefmenu)
+	if(hrefmenu =="#event" || hrefmenu =="#perempuan") {
+		jQuery('.everest-forms .evf-field-container .evf-frontend-row .evf-frontend-grid .evf-field.kategori ul li:nth-child(1)').addClass('hidden');
+		jQuery('.everest-forms .evf-field-container .evf-frontend-row .evf-frontend-grid .evf-field.kategori ul li:nth-child(2)').addClass('hidden');
+	
+	} else if(hrefmenu =="#inovator" || hrefmenu =="#entrepreneur") {
+		jQuery('.everest-forms .evf-field-container .evf-frontend-row .evf-frontend-grid .evf-field.kategori ul li:nth-child(3)').addClass('hidden');
+		jQuery('.everest-forms .evf-field-container .evf-frontend-row .evf-frontend-grid .evf-field.kategori ul li:nth-child(4)').addClass('hidden');
+	
+	}
+
+	if(hrefmenu =="#inovator") {
+		jQuery('.everest-forms .evf-field-container .evf-frontend-row .evf-frontend-grid .evf-field.kategori ul li:nth-child(1) label').addClass('active');
+		jQuery('.everest-forms .evf-field-container .evf-frontend-row .evf-frontend-grid .evf-field.kategori ul li:nth-child(1) input[type=radio]').prop('checked',true);
+	
+	} else if(hrefmenu =="#entrepreneur") {
+		jQuery('.everest-forms .evf-field-container .evf-frontend-row .evf-frontend-grid .evf-field.kategori ul li:nth-child(2) label').addClass('active');
+		jQuery('.everest-forms .evf-field-container .evf-frontend-row .evf-frontend-grid .evf-field.kategori ul li:nth-child(2) input[type=radio]').prop('checked',true);
+	
+	} else if(hrefmenu =="#event") {
+		jQuery('.everest-forms .evf-field-container .evf-frontend-row .evf-frontend-grid .evf-field.kategori ul li:nth-child(3) label').addClass('active');
+		jQuery('.everest-forms .evf-field-container .evf-frontend-row .evf-frontend-grid .evf-field.kategori ul li:nth-child(3) input[type=radio]').prop('checked',true);
+	
+	} else if(hrefmenu =="#perempuan") {
+		jQuery('.everest-forms .evf-field-container .evf-frontend-row .evf-frontend-grid .evf-field.kategori ul li:nth-child(4) label').addClass('active');
+		jQuery('.everest-forms .evf-field-container .evf-frontend-row .evf-frontend-grid .evf-field.kategori ul li:nth-child(4) input[type=radio]').prop('checked',true);
+	
+	}
+
 }

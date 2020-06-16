@@ -43,6 +43,7 @@
 					?>
 				</footer><!-- .entry-footer -->
 			<?php endif; ?>
+			<div class="image-circle"></div>
 		</div><!-- .entry-container -->
 	</div><!-- .post-wrapper -->
 </article><!-- #post-## -->

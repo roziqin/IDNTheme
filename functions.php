@@ -339,6 +339,8 @@ function architectonic_scripts() {
 
 	wp_enqueue_script( 'architectonic-custom', get_template_directory_uri() . '/assets/js/custom' . architectonic_min() . '.js', array( 'jquery' ), '20151215', true );
 
+	wp_enqueue_script( 'owl-carousel', get_template_directory_uri() . '/assets/js/owl-carousel.js', array( 'jquery' ), '', true );
+
 	wp_enqueue_script( 'script-custom', get_template_directory_uri() . '/assets/js/script-custom.js', array( 'jquery' ), '', true );
 }
 add_action( 'wp_enqueue_scripts', 'architectonic_scripts' );

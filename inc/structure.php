@@ -285,10 +285,21 @@ if ( ! function_exists( 'architectonic_header_image' ) ) :
                 <div id="wp-custom-header" class="wp-custom-header">
                 	<?php if ( is_singular() ) : 
                 		if ( has_post_thumbnail() ) : ?>
-            				<div class="banner-image" style="background-image: url('<?php echo esc_url( get_the_post_thumbnail_url( get_the_id(), 'full' ) ); ?>');" ></div>
+                			<?php if ($page_slug1=="about") { ?>
+			            		<div class="banner-image" style="background-image: url('<?php echo esc_url( get_the_post_thumbnail_url( get_the_id(), 'full' ) ); ?>');" ></div>
+		            		<?php } else { ?>
+		            			<div class="banner-image a">
+        							<div class="image-circle-header"></div>
+        						</div>
+		            		<?php } ?>
+            				<?php /*<div class="banner-image" style="background-image: url('<?php echo esc_url( get_the_post_thumbnail_url( get_the_id(), 'full' ) ); ?>');" ></div>*/?>
+        						
         				<?php else : 
         					if ( ! empty( $header_image ) ) : ?>
-        						<div class="banner-image" style="background-image: url('<?php echo esc_url( $header_image ); ?>');"></div>
+        						<?php /*<div class="banner-image" style="background-image: url('<?php echo esc_url( $header_image ); ?>');"></div> */?>
+        						<div class="banner-image b">
+        							<div class="image-circle-header"></div>
+        						</div>
     						<?php endif;
     					endif;
         			else : 
@@ -296,13 +307,12 @@ if ( ! function_exists( 'architectonic_header_image' ) ) :
                     		<div class="banner-image" style="background-image: url('<?php echo esc_url( $header_image ); ?>');"></div>
                 		<?php endif;
                 	endif; ?>
-                	<div class="bg-opacity"></div>
-                	<?php if ($page_slug1=="about") { ?>
+                	<?php /*if ($page_slug1=="about") { ?>
             		<div class="text-bg">
                 		<span class="text">Bersama Lebih Berdampak</span>
                 		<span class="line"></span>
                 	</div>
-            		<?php } ?>
+            		<?php } */?>
             	</div><!--#wp-custom-header -->
 
                 <header class="page-header">

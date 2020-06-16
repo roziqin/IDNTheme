@@ -12,6 +12,9 @@
 // slider section
 require get_template_directory() . '/inc/sections/slider.php';
 
+// activity section
+require get_template_directory() . '/inc/sections/activity.php';
+
 // about section
 require get_template_directory() . '/inc/sections/about.php';
 

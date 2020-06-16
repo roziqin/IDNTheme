@@ -114,6 +114,7 @@ if ( ! function_exists( 'architectonic_render_about_section' ) ) :
                             <?php endif; ?>
                         </div><!-- .entry-container -->
                     </article>
+                    <div class="image-circle"></div>
                 </div><!-- .wrapper -->
             </div><!-- #about-us -->
         <?php endforeach;

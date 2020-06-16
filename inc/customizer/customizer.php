@@ -135,6 +135,9 @@ function architectonic_customize_register( $wp_customize ) {
 	// load slider option
 	require get_template_directory() . '/inc/customizer/sections/slider.php';
 
+	// load activity option
+	require get_template_directory() . '/inc/customizer/sections/activity.php';
+
 	// load about option
 	require get_template_directory() . '/inc/customizer/sections/about.php';
 

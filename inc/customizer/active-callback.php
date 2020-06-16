@@ -79,6 +79,17 @@ function architectonic_is_slider_section_enable( $control ) {
  * @param WP_Customize_Control $control WP_Customize_Control instance.
  * @return bool Whether the control is active to the current preview.
  */
+function architectonic_is_activity_section_enable( $control ) {
+	return ( $control->manager->get_setting( 'architectonic_theme_options[activity_section_enable]' )->value() );
+}
+
+/**
+ * Check if about section is enabled.
+ *
+ * @since Architectonic 1.0.0
+ * @param WP_Customize_Control $control WP_Customize_Control instance.
+ * @return bool Whether the control is active to the current preview.
+ */
 function architectonic_is_about_section_enable( $control ) {
 	return ( $control->manager->get_setting( 'architectonic_theme_options[about_section_enable]' )->value() );
 }

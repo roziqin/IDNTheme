@@ -107,6 +107,10 @@ if ( ! function_exists( 'architectonic_render_service_section' ) ) :
 
          <div id="our-services" class="relative page-section">
                 <div class="wrapper">
+                    <div class="entry-content">
+                        <span>CARA UNTUK BERDAMPAK</span>
+                        <h2>Bergabunglah dengan kami untuk menjadi bagian dari #BersamaLebihBerdampak</h2>
+                    </div>
                     <div class="box-tabs">
                         <div class="box-top-tabs">    
                             <ul class="tabs">

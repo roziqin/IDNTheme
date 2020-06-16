@@ -9,50 +9,29 @@
  * @since Architectonic 1.0.0
  */
 $options = architectonic_get_theme_options();
+$imgurl = has_post_thumbnail() ? get_the_post_thumbnail_url( get_the_id(), 'full' ) : '';
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'clear' ); ?>>
-	<header class="entry-header">
-    	<?php if ( ! $options['single_post_hide_date'] ) : ?>
-	        <div class="entry-meta">
-	            <?php architectonic_posted_on(); ?>
-	        </div><!-- .entry-meta -->
-        <?php endif; ?>
-
-        <div class="post-title">
-            <?php architectonic_single_categories(); ?>
-            <h2 class="entry-title"><?php the_title(); ?></h2>
-        </div><!-- .post-title -->
-    </header>
-    <?php  
-    /**
-	 * Hook architectonic_author_profile_action
-	 *  
-	 * @hooked architectonic_get_author_profile 
-	 */
-    do_action( 'architectonic_author_profile_action' );
-    ?>
-
 	<div class="post-wrapper">
 		<div class="entry-container">
+			<div class="entry-header">
+		        <a href="../blog"><span class="icon-keyboard_arrow_down"></span>KEMBALI KE INDEX INFOGRAFIK</a>
+		        <h5 class="entry-title"><?php the_title(); ?></h5>	
+		        <p>By <?php the_author() ?></p>
+		    </div>
 			<div class="entry-content">
-				<?php
-					the_content( sprintf(
-						/* translators: %s: Name of current post. */
-						wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'architectonic' ), array( 'span' => array( 'class' => array() ) ) ),
-						the_title( '<span class="screen-reader-text">"', '"</span>', false )
-					) );
-
-					wp_link_pages( array(
-						'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'architectonic' ),
-						'after'  => '</div>',
-					) );
-				?>
+				<div class="image">
+					<img src="<?php echo esc_url($imgurl); ?>">
+				</div>
+				<div class="text">
+            		<a href="<?php echo esc_url($imgurl); ?>" class="button-download" download>Download Infografik Ini</a>
+			        <h5 class="sub-title"><?php the_title(); ?></h5>
+					<?php the_content(); ?>
+					
+				</div>
 			</div><!-- .entry-content -->
-
-			<div class="entry-meta">
-				<?php architectonic_entry_footer(); ?>
-			</div>
+			<div class="image-circle"></div>
 		</div><!-- .entry-container -->
     </div><!-- .post-wrapper -->
 </article><!-- #post-## -->
